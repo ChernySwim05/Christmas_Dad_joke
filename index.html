@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Christmas Dad Joke Puzzle Game</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #0b1020, #123456);
+      color: #fdfdfd;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .game-container {
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 16px;
+      padding: 24px 28px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      font-size: 1.9rem;
+    }
+
+    .small {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    #intro,
+    #puzzle-section,
+    #joke-section,
+    #final-section {
+      margin-top: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: #ff4f6a;
+      border: none;
+      border-radius: 999px;
+      padding: 8px 16px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-right: 8px;
+      margin-top: 4px;
+    }
+
+    button:hover {
+      filter: brightness(1.1);
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    #message,
+    #joke-text {
+      margin-top: 10px;
+      min-height: 20px;
+    }
+
+    #joke-text {
+      font-style: italic;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    pre {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 12px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      line-height: 1.2rem;
+    }
+
+    .center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <h1>🎄 Christmas Dad Joke Quest 🎄</h1>
+
+    <!-- Intro / name -->
+    <div id="intro">
+      <p class="small">
+        Solve each little Christmas puzzle. After every correct answer, you’ll unlock a gloriously terrible dad joke.  
+        Clear them all to unlock your Christmas message and tree!
+      </p>
+      <label for="playerName">Your name (optional):</label>
+      <input type="text" id="playerName" placeholder="e.g. Denise" />
+      <button id="startBtn">Start the game</button>
+    </div>
+
+    <!-- Puzzle section -->
+    <div id="puzzle-section" class="hidden">
+      <p id="puzzle-counter" class="small"></p>
+      <p id="puzzle-question"></p>
+      <label for="answerInput">Your answer:</label>
+      <input type="text" id="answerInput" autocomplete="off" />
+      <div>
+        <button id="submitBtn">Submit</button>
+      </div>
+      <div id="message"></div>
+    </div>
+
+    <!-- Dad joke after each puzzle -->
+    <div id="joke-section" class="hidden">
+      <p><strong>Unlocked dad joke 🎅:</strong></p>
+      <p id="joke-text"></p>
+      <button id="nextPuzzleBtn">Next puzzle</button>
+    </div>
+
+    <!-- Final Christmas message + tree -->
+    <div id="final-section" class="hidden">
+      <h2 class="center">✨ Merry Christmas! ✨</h2>
+      <p id="final-message" class="center"></p>
+      <pre id="tree-art" class="center"></pre>
+    </div>
+  </div>
+
+  <!-- External JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
